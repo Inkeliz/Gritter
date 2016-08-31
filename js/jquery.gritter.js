@@ -109,6 +109,7 @@
 			var title = params.title, 
 				text = params.text,
 				image = params.image || '',
+				iconer = params.iconer || "",
 				sticky = params.sticky || false,
 				item_class = params.class_name || $.gritter.options.class_name,
 				position = $.gritter.options.position,
@@ -133,8 +134,8 @@
 				this._custom_timer = time_alive;
 			}
 			
-			var image_str = (image != '') ? '<div class="gritter-img-container"><img src="' + image + '" class="gritter-image" /></div>' : '',
-				class_name = (image != '') ? 'gritter-with-image' : 'gritter-without-image';
+			var image_str = (image != '' || iconer != '') ? '' != image ? '<div class="gritter-img-container"><img src="' + image + '" class="gritter-image" /></div>' : '<div class="gritter-img-container"><i class="' + iconer + '"></i></div>' : '',
+				class_name = (image != '' || iconer != '') ? 'gritter-with-image' : 'gritter-without-image';
 			
 			// String replacements on the template
 			if(title){
